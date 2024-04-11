@@ -1,0 +1,4 @@
+# created by virtualenv automatically
+__pycache__/model.cpython-312.pyc
+flask-todo/*
+my_database.db
