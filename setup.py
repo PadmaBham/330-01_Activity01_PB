@@ -19,3 +19,4 @@ Task(task="Do the dishes.", performed=datetime.now()).save()
 
 User(username="admin", password=pbkdf2_sha256.hash("password")).save()
 User(username="bob", password=pbkdf2_sha256.hash("bobbob")).save()
+
