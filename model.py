@@ -11,7 +11,7 @@ db = connect(os.environ.get('DATABASE_URL', 'sqlite:///my_database.db'))
 class User(Model):
     # TODONE: Added model fields here
     username = CharField(max_length=255, unique=True)
-    password = CharField(max_length=12)
+    password = CharField(max_length=255)
 
     class Meta:
         database = db
