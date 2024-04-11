@@ -23,7 +23,7 @@ def create():
     #    then use the name that the user submitted to create a
     #    new task and save it
     if request.method == 'POST':
-        task = Task(name=request.form['name'])
+        task = Task(task=request.form['username'])
         task.save()
 
         # Then, redirect the user to the list of all tasks
@@ -39,13 +39,13 @@ def login():
     # If the user is attempting to submit the login form (method is POST)
     #    Find a user from the database that matches the username provided in the form submission
     if request.method == 'POST':
-        user = User.select().where(User.name == request.form['name']).get()
+        user = User.select().where(User.username == request.form['username']).get()
 
     #    If you find such a user and their password matches the provided password:
     #        Then log the user in by settings session['username'] to the users name
     #        And redirect the user to the list of all tasks
         if user and pbkdf2_sha256.verify(request.form['password'], user.password):
-            session['username'] = request.form['name']
+            session['username'] = request.form['username']
             return redirect(url_for('all_tasks'))
         
         #    Else:
@@ -68,7 +68,7 @@ def incomplete_tasks():
     # If the request method is POST
         # Then retrieve the username from the session and find the associated user
     if request.method == 'POST':
-        user = User.select().where(User.name == session['username']).get()
+        user = User.select().where(User.username == session['username']).get()
 
         # Retrieve the task_id from the form submission and use it to find the associated task 
         # Update the task to indicate that it has been completed at datetime.now() by the current user 
