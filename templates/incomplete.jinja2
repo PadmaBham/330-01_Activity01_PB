@@ -6,7 +6,7 @@
 <ul>
   {% for task in tasks %}
   <li>
-  {{ task.name }}:
+  {{ task.task }}:
   <form method="POST">
     <input type="hidden" name="task_id" value="{{ task.id }}">
     <input type="submit" value="Mark done">
