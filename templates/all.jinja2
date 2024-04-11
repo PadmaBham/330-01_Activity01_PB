@@ -7,7 +7,7 @@
     {% for task in tasks %}
     <li>
         <!-- TODO: Write the code that will display an individual task -->
-        {{ task.name }} {% if task.performed %}Done on {{ task.performed }} by {{ task.performed_by.name }}{% else %} Undone {% endif %}
+        {{ task.task }} {% if task.performed %}Done on {{ task.performed }} by {{ task.performed_by.username }}{% else %} Undone {% endif %}
     </li>
     {% endfor %}
 </ul>
